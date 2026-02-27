@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: oklch(0.98 0.01 85);
+    --foreground: oklch(0.22 0.03 60);
+    --card: oklch(0.97 0.015 80);
+    --card-foreground: oklch(0.22 0.03 60);
+    --popover: oklch(0.98 0.01 85);
+    --popover-foreground: oklch(0.22 0.03 60);
+    --primary: oklch(0.38 0.09 145);
+    --primary-foreground: oklch(0.98 0.01 85);
+    --secondary: oklch(0.88 0.06 80);
+    --secondary-foreground: oklch(0.28 0.05 60);
+    --muted: oklch(0.93 0.02 80);
+    --muted-foreground: oklch(0.52 0.04 70);
+    --accent: oklch(0.72 0.14 55);
+    --accent-foreground: oklch(0.15 0.03 60);
+    --destructive: oklch(0.55 0.22 25);
+    --destructive-foreground: oklch(0.98 0.01 85);
+    --border: oklch(0.88 0.03 80);
+    --input: oklch(0.88 0.03 80);
+    --ring: oklch(0.38 0.09 145);
+    --radius: 0.75rem;
+
+    /* MoolYatra brand colors */
+    --color-forest: oklch(0.38 0.09 145);
+    --color-ochre: oklch(0.72 0.14 55);
+    --color-cream: oklch(0.96 0.03 85);
+    --color-terracotta: oklch(0.58 0.16 35);
+    --color-saffron: oklch(0.62 0.18 38);
+    --color-golden: oklch(0.76 0.16 72);
+    --color-teal: oklch(0.52 0.13 185);
+
+    /* Chart colors */
+    --chart-1: oklch(0.52 0.13 185);
+    --chart-2: oklch(0.38 0.09 145);
+    --chart-3: oklch(0.62 0.18 38);
+    --chart-4: oklch(0.76 0.16 72);
+    --chart-5: oklch(0.58 0.16 35);
+  }
+
+  .dark {
+    --background: oklch(0.15 0.02 60);
+    --foreground: oklch(0.93 0.02 80);
+    --card: oklch(0.20 0.03 60);
+    --card-foreground: oklch(0.93 0.02 80);
+    --popover: oklch(0.20 0.03 60);
+    --popover-foreground: oklch(0.93 0.02 80);
+    --primary: oklch(0.55 0.12 145);
+    --primary-foreground: oklch(0.15 0.02 60);
+    --secondary: oklch(0.28 0.04 60);
+    --secondary-foreground: oklch(0.93 0.02 80);
+    --muted: oklch(0.25 0.03 60);
+    --muted-foreground: oklch(0.65 0.04 70);
+    --accent: oklch(0.65 0.14 55);
+    --accent-foreground: oklch(0.15 0.02 60);
+    --destructive: oklch(0.55 0.22 25);
+    --destructive-foreground: oklch(0.98 0.01 85);
+    --border: oklch(0.30 0.04 60);
+    --input: oklch(0.30 0.04 60);
+    --ring: oklch(0.55 0.12 145);
+
+    --color-forest: oklch(0.55 0.12 145);
+    --color-ochre: oklch(0.65 0.14 55);
+    --color-cream: oklch(0.25 0.03 80);
+    --color-terracotta: oklch(0.62 0.16 35);
+    --color-saffron: oklch(0.65 0.18 38);
+    --color-golden: oklch(0.72 0.16 72);
+    --color-teal: oklch(0.58 0.13 185);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+  .card-shadow {
+    box-shadow: 0 4px 20px oklch(0.22 0.03 60 / 0.12);
+  }
+  .stories-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .stories-container::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes shimmer {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.75; transform: scale(1.03); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeSlideIn {
+  0% { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.52 0.13 185 / 0.4); }
+  50% { box-shadow: 0 0 0 6px oklch(0.52 0.13 185 / 0); }
+}
+
+.animate-shimmer {
+  animation: shimmer 2.5s ease-in-out infinite;
+}
+
+.animate-fadeSlideIn {
+  animation: fadeSlideIn 0.5s ease-out both;
+}
+
+.animate-fadeOut {
+  animation: fadeOut 0.8s ease-in forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes heart-pulse {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.45); }
+  60% { transform: scale(0.92); }
+  100% { transform: scale(1); }
+}
+
+.heart-pulse {
+  animation: heart-pulse 0.4s ease-out;
+}
+
+@keyframes login-glow {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.52 0.13 185 / 0.5); }
+  50% { box-shadow: 0 0 18px 4px oklch(0.52 0.13 185 / 0.25); }
+}
+
+.login-glow {
+  animation: login-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes progress-fill {
+  from { width: 0%; }
+}
+
+.animate-progress-fill {
+  animation: progress-fill 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
